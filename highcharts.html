@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="Template for economic visualization and reporting">
+  <meta name="keywords" content="BEA, Bureau of Economic Analysis">
+  <meta name="author" content="Communications Division">
+  <link rel="icon" type="image/png" href="img/favicon-32x32.png?v=9BBR3Ay64e" sizes="32x32">
+  <link rel="icon" type="image/png" href="img/favicon-194x194.png?v=9BBR3Ay64e" sizes="194x194">
+  <link rel="icon" type="image/png" href="img/favicon-96x96.png?v=9BBR3Ay64e" sizes="96x96">
+  <link rel="icon" type="image/png" href="img/favicon-16x16.png?v=9BBR3Ay64e" sizes="16x16">
+  <link rel="shortcut icon" href="img/favicon.ico?v=9BBR3Ay64e">
+  <title>Template</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+  <!-- 1. Add these JavaScript inclusions in the head of your page -->
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>
+  <script type="text/javascript" src="http://code.highcharts.com/modules/data.js"></script>
+
+  <!-- 2. Add the JavaScript to initialize the chart on document ready -->
+  <!-- style HighCharts --><script src="assets/bea-trans.js"></script>
+  <script type="text/javascript">
+    $(function () {
+    $('#container').highcharts({
+        title: {
+            text: 'U.S. Current-Account and Component Balance',
+
+        },
+        subtitle: {
+            text: 'Quarterly, seasonally adjusted',
+
+        },
+        credits: {
+              enabled: false
+            },
+        xAxis: {
+            categories: ['Q1 2008', 'Q2 2008', 'Q3 2008', 'Q4 2008', 'Q1 2009', 'Q2 2009', 'Q3 2009', 'Q4 2009', 'Q1 2010', 'Q2 2010', 'Q3 2010', 'Q4 2010', 'Q1 2011', 'Q2 2011', 'Q3 2011', 'Q4 2011', 'Q1 2012', 'Q2 2012', 'Q3 2012', 'Q4 2012', 'Q1 2013', 'Q2 2013', 'Q3 2013', 'Q4 2013', 'Q1 2014', 'Q2 2014', 'Q3 2014', 'Q3 2014', 'Q1 2015', 'Q2 2015', 'Q3 2015', 'Q4 2015', 'Q1 2016']
+        },
+        yAxis: {
+            title: {
+                text: '$ in billions'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        legend: {
+            enabled: true
+        },
+        plotOptions: {
+            series: {
+                marker: {
+                    enabled: false
+                }
+            }
+        },
+        series: [{
+            type: "area",
+            name: 'Current Account Balance',
+            data: [-183087, -178243, -176913, -152547, -98232, -89031, -94131, -102630, -108212, -114037, -117844, -101868, -118240, -121031, -108409, -112675, -120294, -116808, -105423, -104003, -98980, -94833, -92725, -79883, -94654, -94060, -95619, -107726, -114549, -111904, -123106, -113406, -124671,]
+            },{
+            type: "line",
+            name: 'Goods',
+            data: [-216677, -220469, -219624, -175722, -123499, -111984, -129950, -144262, -152461, -165200, -168786, -162230, -181536, -186717, -183307, -189086, -193976, -187183, -177957, -182055, -178437, -177126, -177570, -169112, -185712, -191836, -184677, -189944, -193517, -190876, -189768, -188404, -186429,]
+            },{
+            type: "line",
+            name: 'Services',
+            data: [31126, 34120, 30175, 28346, 28728, 30540, 31403, 35250, 34507, 36446, 39411, 43656, 47217, 47838, 49345, 47620, 49205, 50498, 50416, 54278, 58827, 59394, 60500, 61647, 65199, 66002, 65262, 65531, 67003, 66848, 64157, 64195, 64557,]
+            },{
+            type: "line",
+            name: 'Primary Income',
+            data: [38670, 39734, 44041, 23701, 25319, 24366, 37922, 35977, 43785, 44232, 42828, 46816, 50302, 51219, 57613, 61827, 57962, 52765, 52954, 52112, 50239, 54783, 56761, 57187, 56746, 54623, 59325, 53310, 48351, 45071, 41848, 47115, 37498,]
+            },{
+            type: "line",
+            name: 'Secondary Income',
+            data: [-36206, -31628, -31505, -28872, -28780, -31954, -33506, -29595, -34043, -29515, -31296, -30110, -34223, -33371, -32060, -33036, -33485, -32888, -30836, -28338, -29609, -31885, -32416, -29605, -30887, -22849, -35529, -36623, -36386, -32947, -39343, -36312, -40297,]
+            }]
+    });
+});
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <img src="img/apple-touch-icon-72x72.png" style="float:right">
+        <h1>Title Goes Here<br><small>Subtitle because we are fancy</small></h1>
+        <p class="muted">by PJ Urquilla | September 28, 2016</p>
+        <hr>
+
+        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultrices mi eu libero elementum, quis tristique tellus pretium. Morbi ut diam orci. Mauris semper ante pharetra nisl sodales tincidunt. Vestibulum convallis elit at mi interdum, et bibendum arcu sagittis. Nunc risus est, viverra ac semper faucibus, rhoncus sit amet neque. Nullam in tincidunt ipsum. Morbi consectetur urna in nisl lacinia gravida. Cras rutrum leo massa, ac aliquam tellus ultricies dictum. Sed cursus in dui vitae varius. Nullam vulputate semper purus, sit amet interdum ligula.</p>
+
+        <p>Praesent malesuada risus eros, eu consequat mauris condimentum sit amet. Aenean auctor sit amet lectus non lobortis. Curabitur vel justo justo. Mauris pharetra mauris vel turpis tincidunt mollis. Nam tempus iaculis turpis sed tempus. Curabitur nibh mauris, blandit quis turpis ac, aliquam bibendum ante. Morbi libero est, varius fringilla consequat sit amet, cursus eget sem. Suspendisse potenti.</p>
+
+        <div id="container"></div>
+
+        <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed odio mauris, rutrum a risus ut, tempor vulputate odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed ullamcorper mauris facilisis dictum facilisis. Vestibulum posuere et libero quis congue. Aenean ultrices, lorem vel imperdiet tincidunt, felis libero auctor nisi, et maximus nulla purus eu risus. Nunc tempor malesuada iaculis. Quisque pharetra sapien id mi placerat porttitor. Phasellus non ex est. Aliquam interdum quam sit amet ante rhoncus, nec dapibus velit mollis.</p>
+
+        <p>Vivamus mollis vestibulum egestas. Pellentesque nisl enim, rutrum a massa a, aliquet interdum leo. Praesent sagittis at magna in lobortis. Curabitur vel est molestie, aliquet felis ut, laoreet lorem. In auctor nec velit sit amet ultrices. Quisque ac faucibus quam. Sed gravida a velit in convallis. Cras id risus id elit rutrum porttitor vitae at velit. Donec id pretium nunc. Nunc sollicitudin lacus non ex porta, a congue urna mollis. Phasellus ut ipsum ac eros porttitor consequat.</p>
+
+        <p>Sed varius lobortis urna vel convallis. Curabitur lorem turpis, sagittis sed quam at, sagittis efficitur ligula. Morbi erat leo, consectetur eu iaculis at, laoreet vitae dolor. Maecenas viverra nisi at nulla tristique, feugiat venenatis nisi scelerisque. Aliquam et est id urna pharetra ornare. Nullam quis purus nec libero pulvinar pulvinar a a sapien. Maecenas eget vehicula velit, id viverra felis.</p>
+
+        <hr>
+        <h3>Footer headline</h3>
+        <p>Will probably need some sort of disclaimer here.</p>
+
+      </div>
+    </div>
+  </div>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <!--Disable for highcharts <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
